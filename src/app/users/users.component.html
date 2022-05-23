@@ -1,0 +1,52 @@
+<h1 class="h3 mb-2 text-gray-800" style="background-color: rgb(12, 188, 191);">AngularCRUD</h1>
+<div style="display:flex ; justify-content:center;">
+<a routerLink="/user-create" class="btn btn-sm btn-primary" style="background-color: rgb(214, 25, 107)  ;display: flex; justify-content: center; ">Create Employee</a>
+</div>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary"><b>Employee Data</b></h6>
+  </div>
+
+  <div class="card-body">
+    <div class="table-responsive">
+      <table
+        class="table table-bordered"
+        id="dataTable"
+        width="100%"
+        cellspacing="0"
+      >
+        <thead>
+          <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+         
+          <tr *ngFor="let user of userList">
+            <td>{{ user.FirstName }}</td>
+            <td>{{ user.LastName}}</td>
+            <td>{{ user.Email }}</td>
+            <td>{{ user.Salary }}</td>
+            
+            <td>
+              <a
+                [routerLink]="['/user', user.EmployeeID]"
+                class="btn btn-sm btn-primary"
+                >Edit</a
+              >
+              <a (click)="onDelete(user)" class="btn btn-sm btn-danger"
+                >Delete</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
